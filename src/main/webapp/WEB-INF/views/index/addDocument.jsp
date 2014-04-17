@@ -47,7 +47,7 @@
         <div id="formDiv" class="span12 text-center">
             <div class="jumbotron">
                 <h3>Add document *.doc(x), *.ppt(x), *.xls(x), *.pdf</h3>
-                <form class="form-upload" method="post" action="saveDocument.do" enctype="multipart/form-data">
+                <form class="form-upload" method="post" action="/saveDocument.do" enctype="multipart/form-data">
                     <div class="control-group">
                         <input type="file" name="document" class="input-xxlarge search-query"/>
                     </div>
