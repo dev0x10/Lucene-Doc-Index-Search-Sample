@@ -120,7 +120,7 @@
         <p class="muted credit">&copy;<script>var date = new Date;document.write(date.getFullYear().toString());</script> Powered by <a href="http://lucene.apache.org/core/">Apache Lucene</a></p>
     </div>
 </div>
-<script src="<c:url value="/resources/js/jquery1.9.min.js"/>"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/highlighter.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.tooltip.js"/>"></script>
