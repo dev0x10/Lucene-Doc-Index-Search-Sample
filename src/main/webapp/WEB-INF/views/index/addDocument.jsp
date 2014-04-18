@@ -40,11 +40,11 @@
                 <h3>Add document .doc(x), .ppt(x), .xls(x), .pdf</h3>
                 <div class="row">
                     <div class="col-lg-6">
-                        <form class="form-upload" method="post" action="/saveDocument.do" enctype="multipart/form-data">
+                        <form class="form-upload" method="post" action="saveDocument.do" enctype="multipart/form-data">
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <span class="btn btn-warning btn-file">
-                                        Browse <input type="file" name="indexfile" />
+                                        Browse <input type="file" name="document" />
                                     </span>
                                 </span>
                                 <input type="text" class="form-control" readonly="">
