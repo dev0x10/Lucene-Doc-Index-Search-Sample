@@ -28,10 +28,10 @@
                 <div class="inner">
                     <h3 class="masthead-brand"></h3>
                     <ul class="nav masthead-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="index/upload.do">Upload Warc</a></li>
-                        <li class="active"><a href="index/addDocument.do">Upload Document</a></li>
-                        <li><a href="index/data.do">Library Data</a></li>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="upload.do">Upload Warc</a></li>
+                        <li class="active"><a href="#">Upload Document</a></li>
+                        <li><a href="data.do">Library Data</a></li>
                     </ul>
                 </div>
             </div>
