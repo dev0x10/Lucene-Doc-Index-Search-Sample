@@ -4,7 +4,6 @@ import com.springapp.mvc.model.AppConfig;
 import com.springapp.mvc.model.LuceneIndexReader;
 import com.springapp.mvc.model.LuceneIndexWriter;
 import com.springapp.mvc.model.WarcExtractor;
-import com.sun.javafx.tools.packager.Log;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.store.Directory;
@@ -83,7 +82,6 @@ public class IndexController {
                 map.put("totalKeywords", 0);
             }
         } catch (IOException e) {
-            Log.info(e.getMessage().toString());
             map.put("totalKeywords", 0);
         }
 
