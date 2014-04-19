@@ -68,7 +68,9 @@ public class LuceneIndexReader {
             result = new HashMap<String, String>();
             for (int i = 0; i < hits.length; i++) {
                 Document doc = searcher.doc(hits[i].doc);
-                result.put(doc.get("fullpath"), getPreview(doc.get("fullpath"), searchString.replaceAll("[^a-zA-Z0-9\\s]", "")));
+                int indexOfLastSlash =  doc.get("fullpath").lastIndexOf('/');
+                String fileName = doc.get("fullpath").substring(indexOfLastSlash + 1);
+                result.put(fileName, getPreview(doc.get("fullpath"), searchString.replaceAll("[^a-zA-Z0-9\\s]", "")));
             }
 
         } catch (org.apache.lucene.queryparser.classic.ParseException e) {
