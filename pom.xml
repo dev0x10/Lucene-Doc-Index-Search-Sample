@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.springapp</groupId>
-    <artifactId>finalprojectir</artifactId>
+    <artifactId>samplelucene</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>finalprojectir</name>
@@ -151,21 +151,13 @@
     </dependencies>
 
     <build>
-        <finalName>finalprojectir</finalName>
+        <finalName>samplelucene</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*Tests.java</include>
-                    </includes>
                 </configuration>
             </plugin>
         </plugins>
