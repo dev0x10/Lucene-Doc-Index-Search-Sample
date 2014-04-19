@@ -45,7 +45,7 @@
                             <h3>Total Docs : ${totalDocs}</h3>
                         </c:when>
                         <c:otherwise>
-                            <h3>Cannot find index file~</h3>
+                            <h3>No data yet~</h3>
                         </c:otherwise>
                     </c:choose>
                     </div>

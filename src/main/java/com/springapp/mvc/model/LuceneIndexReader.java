@@ -12,23 +12,23 @@ import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.Version;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.apache.xmlbeans.XmlException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.text.DecimalFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class LuceneIndexReader {
 
@@ -36,6 +36,7 @@ public class LuceneIndexReader {
     private IndexReader indexReader;
     private Fields fields;
     private final StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_42);
+
 
     public LuceneIndexReader(Directory indexDir) throws IOException {
         this.indexDir = indexDir;
@@ -152,5 +153,9 @@ public class LuceneIndexReader {
             System.out.println(e.getMessage());
         }
         return sb.toString();
+    }
+
+    public IndexReader getIndexReader() {
+        return indexReader;
     }
 }

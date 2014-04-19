@@ -1,22 +1,24 @@
 package com.springapp.mvc.controller;
 
 import com.springapp.mvc.model.AppConfig;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import com.springapp.mvc.model.LuceneIndexReader;
 import com.springapp.mvc.model.LuceneIndexWriter;
 import com.springapp.mvc.model.WarcExtractor;
+import com.sun.javafx.tools.packager.Log;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.apache.xmlbeans.XmlException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
+
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
@@ -68,14 +70,20 @@ public class IndexController {
     }
 
     @RequestMapping
-    public void data(ModelMap map) throws IOException {
-        if (new File(appConfig.getIndexPath()).exists() && FileUtils.sizeOfDirectory(new File(appConfig.getIndexPath())) > 0) {
-            Directory indexDir = FSDirectory.open(new File(appConfig.getIndexPath()));
-            LuceneIndexReader luceneIndexReader = new LuceneIndexReader(indexDir);
-            HashMap<String, Object> listWords = luceneIndexReader.getAllWords();
-            map.put("totalKeywords", listWords.size());
-            map.put("totalDocs", String.valueOf(luceneIndexReader.getTotalDocs()));
-        } else {
+    public void data(ModelMap map){
+        try {
+            indexDir = FSDirectory.open(new File(appConfig.getIndexPath()));
+            if(DirectoryReader.indexExists(indexDir)){
+                LuceneIndexReader luceneIndexReader = new LuceneIndexReader(indexDir);
+                HashMap<String, Object> listWords = luceneIndexReader.getAllWords();
+                map.put("totalKeywords", listWords.size());
+                map.put("totalDocs", String.valueOf(luceneIndexReader.getTotalDocs()));
+            }
+            else {
+                map.put("totalKeywords", 0);
+            }
+        } catch (IOException e) {
+            Log.info(e.getMessage().toString());
             map.put("totalKeywords", 0);
         }
 
