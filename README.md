@@ -8,7 +8,9 @@ Using:
 - Apache POI (http://poi.apache.org/)
 - Apache PDFBox (http://pdfbox.apache.org/)
 
-How To Run
+How To Build
 =============
-Build the project using Maven
-Put the built *.war and install the war into your Tomcat server (tested with Tomcat 7)
+- Download and install Maven (http://maven.apache.org/download.cgi)
+- Run **mvn install** under project root
+- The command will generate a *.war* file inside target folder
+- Deploy the *.war* file to your Tomcat server
